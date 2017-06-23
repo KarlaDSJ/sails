@@ -36,13 +36,17 @@ function createUser (req, res){
 		if(err){
 			return res.status(500).send('Error');
 		}
-		return res.status(200).send('Entré al contolador');
+		return res.ok(foundUsers).send('Entré al contolador');
 	});	
 }
 function readUser(req,res){
 	return User.find()
 	.then((foundUsers) => {
-		res.status(200).json(foundUsers);
+		res.status(200).render('readUsers',{
+			title: "Usuarios",
+			users: foundUsers,
+			layout: 'layout',
+		});
 	})
 	.catch((err) =>{
 		res.status(500).send("algo ocurrio");
