@@ -4,8 +4,8 @@
  * @description :: Server-side logic for managing users
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
-const waterfall = require('async/waterfall');
-/*function addUser(err,req,cbwf){
+/*const waterfall = require('async/waterfall');
+function addUser(err,req,cbwf){
 			User.create({
 			nombre: req.body.nombre,
 			password: req.body.password,
@@ -52,8 +52,19 @@ function readUser(req,res){
 		res.status(500).send("algo ocurrio");
 	})
 }
+function saludo (req,res){
+	coso(req.params.nombre);
+	color("Hola " + req.params.nombre);
+	res.ok("Hola " + req.params.nombre);
+}
+function login (req,res){
+	req.session.nombre = req.params.nombre;
+	res.ok();
+}
 module.exports = {
 	createUser,
 	readUser,
+	saludo,
+	login,
 };
 

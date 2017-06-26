@@ -34,6 +34,8 @@ module.exports.routes = {
 
   'post /User': 'UserController.createUser',
   'get /User': 'UserController.readUser',
+  'get /hola/:nombre' : 'UserController.saludo',
+   'get /login/:nombre' : 'UserController.login',
 
   /***************************************************************************
   *                                                                          *
